@@ -23,21 +23,38 @@ function InicioSesion({ alCambiarARegistro, alIniciarSesionExitoso }) {
  return;
  }
 
- // // ELIMINAR: buscar en localStorage (las líneas de usuariosExistentes y usuarioEncontrado)
- 
- // // ESCRIBIR esto en su lugar:
- const respuesta = await iniciarSesion({ correo, contrasena });
+ try {
+     // Intentamos realizar la petición al servidor en línea
+     const respuesta = await iniciarSesion({ correo, contrasena });
 
- if (respuesta.error) {
- setError(respuesta.error);
- return;
+     // Si el servidor responde con un error estructurado
+     if (respuesta && respuesta.error) {
+         setError(respuesta.error);
+         return;
+     }
+     
+     // Si la respuesta no es válida o falta el usuario
+     if (!respuesta || !respuesta.usuario) {
+         setError('Correo o contraseña incorrectos.');
+         return;
+     }
+
+     // Guardar sesión activa (solo el objeto usuario, no la contraseña)
+     localStorage.setItem('usuarioActivo', JSON.stringify(respuesta.usuario));
+     
+     // Avisar al componente padre que el login fue exitoso
+     alIniciarSesionExitoso(respuesta.usuario);
+
+ } catch (err) {
+     // Si el servidor en línea falló o tiró un error de red, lo atrapamos aquí
+     if (err.response && err.response.data && err.response.data.mensaje) {
+         setError(err.response.data.mensaje);
+     } else if (err.message) {
+         setError('Correo o contraseña incorrectos.');
+     } else {
+         setError('Error al conectar con el servidor.');
+     }
  }
-
- // // Guardar sesión activa (solo el objeto usuario, no la contraseña)
- localStorage.setItem('usuarioActivo', JSON.stringify(respuesta.usuario));
- 
- // Avisar al componente padre que el login fue exitoso
- alIniciarSesionExitoso(respuesta.usuario);
  };
 
  return (
