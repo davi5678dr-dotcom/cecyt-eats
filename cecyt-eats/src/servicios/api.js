@@ -1,5 +1,6 @@
 // src/servicios/api.js
-const URL_BASE = 'http://localhost:3001/api';
+const URL_BASE = import.meta.env.VITE_API_URL || 
+'http://localhost:3001/api'; 
 // ── USUARIOS ─────────────────────────────────────────────────────────
 export const registrarUsuario = async (datos) => {
  const res = await fetch(`${URL_BASE}/usuarios/registro`, {
