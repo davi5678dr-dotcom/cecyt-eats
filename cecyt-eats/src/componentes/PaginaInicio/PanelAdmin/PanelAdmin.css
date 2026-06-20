@@ -1,0 +1,151 @@
+/* ── LAYOUT GENERAL ── */
+.contenedor-panel { min-height: 100vh; background: #f4f6f9; }
+.header-panel {
+ display: flex; justify-content: space-between; align-items: center;
+ background: #003366; color: white;
+ padding: 14px 30px;
+}
+.titulo-panel { font-size: 18px; font-weight: 700; }
+.info-admin { display: flex; align-items: center; gap: 16px; font-size: 14px; }
+.btn-salir-admin {
+ background: transparent; color: #ffcc00;
+ border: 1px solid #ffcc00; padding: 5px 12px;
+ border-radius: 5px; cursor: pointer; font-weight: 600;
+}
+.btn-salir-admin:hover { background: #ffcc00; color: #003366; }
+
+/* ── PESTAÑAS ── */
+.pestanas-panel {
+ display: flex; background: #002244;
+ padding: 0 20px; gap: 4px;
+}
+.btn-pestana {
+ padding: 13px 20px; background: transparent;
+ color: #aaccee; border: none; cursor: pointer;
+ font-size: 14px; font-weight: 600; border-bottom: 3px solid transparent;
+ transition: 0.15s;
+}
+.btn-pestana:hover { color: white; }
+.btn-pestana.activa { color: white; border-bottom-color: #ffcc00; }
+
+.cuerpo-panel { padding: 28px 30px; }
+.subtitulo-seccion { color: #003366; font-size: 20px; margin-bottom: 18px; }
+
+/* ── DASHBOARD: TARJETAS MÉTRICAS (ESTILOS ORIGINALES CON INTERACCIÓN AGREGADA) ── */
+.cuadricula-metricas {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+ gap: 20px; margin-bottom: 30px;
+}
+
+.tarjeta-metrica {
+ background: white; /* Mantenemos el fondo blanco original del profe */
+ border-radius: 10px;
+ padding: 22px 20px; text-align: center;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+ border-left: 5px solid #003366;
+ 
+ /* Ajustes añadidos para las animaciones y bordes */
+ border-top: 2px solid transparent;
+ border-right: 2px solid transparent;
+ border-bottom: 2px solid transparent;
+ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ cursor: pointer;
+ animation: deslizarLateralAdmin 0.5s ease-out; /* Animación de movimiento al cargar */
+}
+
+/* EFECTO CUANDO SE SELECCIONA O PASA EL MOUSE POR LOS CUADRADOS */
+.tarjeta-metrica:hover {
+ transform: translateX(8px); /* Se mueve sutilmente hacia un lado */
+ box-shadow: 0 6px 14px rgba(0, 51, 102, 0.12);
+ 
+ /* Le añade un borde sutil con el mismo azul del profe en los tres lados restantes */
+ border-top-color: #003366;
+ border-right-color: #003366;
+ border-bottom-color: #003366;
+}
+
+/* Variaciones de alerta del profe intactas, pero con sus bordes de hover correspondientes */
+.tarjeta-metrica.alerta { border-left-color: #d9534f; }
+.tarjeta-metrica.alerta:hover {
+ border-top-color: #d9534f;
+ border-right-color: #d9534f;
+ border-bottom-color: #d9534f;
+}
+
+.tarjeta-metrica.advertencia { border-left-color: #f0ad4e; }
+.tarjeta-metrica.advertencia:hover {
+ border-top-color: #f0ad4e;
+ border-right-color: #f0ad4e;
+ border-bottom-color: #f0ad4e;
+}
+
+.numero-metrica { display: block; font-size: 36px; font-weight: 900; color: #1a1a1a; }
+.etiqueta-metrica { font-size: 13px; color: #666; margin-top: 4px; display: block; }
+
+/* REGLA DE ANIMACIÓN DE UN LADO A OTRO */
+@keyframes deslizarLateralAdmin {
+ 0% {
+   opacity: 0;
+   transform: translateX(-15px);
+ }
+ 100% {
+   opacity: 1;
+   transform: translateX(0);
+ }
+}
+
+/* ── TABLA DE ÓRDENES ── */
+.tabla-ordenes { width: 100%; border-collapse: collapse; background: white;
+ border-radius: 10px; overflow: hidden;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+.tabla-ordenes th {
+ background: #003366; color: white; padding: 12px 16px;
+ text-align: left; font-size: 13px; text-transform: uppercase;
+}
+.tabla-ordenes td { padding: 11px 16px; border-bottom: 1px solid #f0f0f0; font-size: 14px; }
+.tabla-ordenes tr:last-child td { border-bottom: none; }
+.tabla-ordenes tr:hover td { background: #f8f9fa; }
+.selector-estado {
+ padding: 5px 10px; border-radius: 5px; border: 1px solid #ccc;
+ font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.estado-pendiente { background:#fff3cd; color:#856404; }
+.estado-preparando { background:#cce5ff; color:#004085; }
+.estado-listo-para-entrega { background:#d4edda; color:#155724; }
+.estado-entregado { background:#e2e3e5; color:#383d41; }
+
+/* ── INVENTARIO / CRUD ── */
+.cabecera-inventario { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.btn-nuevo-producto {
+ background: #003366; color: white; border: none;
+ padding: 9px 18px; border-radius: 7px;
+ font-weight: 700; cursor: pointer;
+}
+.btn-nuevo-producto:hover { background: #002244; }
+.tabla-inventario { width:100%; border-collapse:collapse; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.07); margin-top:16px; }
+.tabla-inventario th { background:#003366; color:white; padding:11px 14px; font-size:13px; text-align:left; }
+.tabla-inventario td { padding:10px 14px; border-bottom:1px solid #f0f0f0; font-size:14px; }
+.badge-disponible { background:#d4edda; color:#155724; padding:3px 8px; border-radius:10px; font-size:12px; font-weight:700; }
+.badge-agotado { background:#f8d7da; color:#721c24; padding:3px 8px; border-radius:10px; font-size:12px; font-weight:700; }
+.celda-acciones { display:flex; gap:8px; }
+.btn-editar { padding:5px 12px; background:#00509d; color:white; border:none; border-radius:5px; cursor:pointer; font-size:13px; }
+.btn-eliminar{ padding:5px 12px; background:#d9534f; color:white; border:none; border-radius:5px; cursor:pointer; font-size:13px; }
+
+/* ── FORMULARIO PRODUCTO ── */
+.formulario-producto {
+ background:#f0f5ff; border:2px solid #00509d;
+ border-radius:10px; padding:20px; margin-bottom:22px;
+}
+.formulario-producto h3 { color:#003366; margin-bottom:14px; }
+.grilla-formulario { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.grupo-form { display:flex; flex-direction:column; gap:4px; }
+.grupo-form label { font-size:13px; font-weight:600; color:#333; }
+.grupo-form input { padding:8px 10px; border:1px solid #ccc; border-radius:5px; font-size:14px; }
+.grupo-form input:focus { border-color:#00509d; outline:none; }
+.error-campo { font-size:12px; color:#d9534f; font-weight:600; }
+.botones-formulario { grid-column:1/-1; display:flex; gap:10px; justify-content:flex-end; margin-top:6px; }
+.btn-cancelar { padding:9px 18px; background:white; color:#333; border:1px solid #ccc; border-radius:6px; cursor:pointer; }
+.btn-guardar { padding:9px 22px; background:#003366; color:white; border:none; border-radius:6px; font-weight:700; cursor:pointer; }
+.btn-guardar:hover { background:#002244; }
+.sin-resultados { text-align: center; color: #999; padding: 50px; font-size: 16px; }

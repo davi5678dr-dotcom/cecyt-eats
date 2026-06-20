@@ -1,0 +1,246 @@
+/* ==========================================================================
+   ── ESTILOS GLOBALES PARA LA CAFETERÍA CECyT-Eats ──
+   ========================================================================== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* FONDO CON COLOR Y TEXTURA CON RECUERDO A CAFETERÍA */
+  background-color: #f7f3eb; /* Un tono café/crema suave base */
+  background-image: radial-gradient(#eada7b 0.6px, transparent 0.6px), radial-gradient(#eada7b 0.6px, #f7f3eb 0.6px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  
+  color: #333333;
+}
+
+/* --- BARRA DE NAVEGACIÓN --- */
+.barra-navegacion {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px 40px;
+ background-color: #ffffff;
+ box-shadow: 0 4px 12px rgba(0, 51, 102, 0.08);
+ position: sticky;
+ top: 0;
+ z-index: 100;
+}
+
+.texto-logo { 
+  font-size: 24px; 
+  font-weight: 800; 
+  color: #003366; 
+  letter-spacing: -0.5px;
+}
+
+.resalte-logo { 
+  color: #ffcc00; 
+}
+
+.botones-navegacion button {
+ margin-left: 15px; 
+ padding: 9px 22px;
+ border-radius: 20px; 
+ font-weight: 600;
+ cursor: pointer; 
+ border: none; 
+ transition: all 0.25s ease;
+}
+
+.btn-entrar { 
+  background-color: transparent; 
+  color: #003366; 
+  border: 2px solid #003366 !important; 
+}
+
+.btn-entrar:hover { 
+  background-color: rgba(0, 51, 102, 0.05); 
+  transform: translateY(-1px);
+}
+
+.btn-registrarme { 
+  background-color: #003366; 
+  color: white; 
+  box-shadow: 0 3px 8px rgba(0, 51, 102, 0.2);
+}
+
+.btn-registrarme:hover { 
+  background-color: #002244; 
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0, 51, 102, 0.3);
+}
+
+/* --- SECCIÓN HERO (NUEVA IMAGEN DE CAFETERÍA DE VERDAD) --- */
+.seccion-hero {
+ background-image: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1200');
+ background-size: cover;
+ background-position: center;
+ height: 75vh; 
+ position: relative;
+}
+
+.capa-oscura {
+ background-color: rgba(0, 26, 51, 0.65); /* Filtro oscuro para que el texto resalte hermoso */
+ width: 100%; 
+ height: 100%;
+ display: flex; 
+ justify-content: center; 
+ align-items: center; 
+ text-align: center;
+}
+
+.contenido-hero { 
+  color: white; 
+  padding: 20px; 
+  max-width: 800px;
+  animation: subirEntrada 0.6s ease-out;
+}
+
+.contenido-hero h1 { 
+  font-size: 46px; 
+  margin-bottom: 18px; 
+  font-weight: 800; 
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.contenido-hero p { 
+  font-size: 19px; 
+  margin-bottom: 35px; 
+  color: #f0f4f8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.btn-ver-menu {
+ background-color: #ffcc00; 
+ color: #003366; 
+ padding: 14px 36px; 
+ font-size: 18px; 
+ font-weight: 700;
+ border: none; 
+ border-radius: 25px; 
+ cursor: pointer;
+ box-shadow: 0 4px 14px rgba(255, 204, 0, 0.4); 
+ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-ver-menu:hover { 
+  background-color: #ffe066; 
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 20px rgba(255, 204, 0, 0.6); 
+}
+
+/* --- SECCIÓN INFORMATIVA (CON FONDO CON COLOR) --- */
+.seccion-informativa { 
+  padding: 80px 20px; 
+  text-align: center; 
+  /* Eliminado el blanco: ahora usa un tono crema-capuchino que hace juego con el body */
+  background-color: #f3eae1; 
+  border-top: 1px solid #e2d2c3;
+  border-bottom: 1px solid #e2d2c3;
+  box-shadow: inset 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.seccion-informativa h2 { 
+  font-size: 32px; 
+  color: #003366; 
+  margin-bottom: 50px; 
+  font-weight: 800;
+}
+
+.cuadricula-info {
+ display: flex; 
+ justify-content: center; 
+ gap: 30px; 
+ flex-wrap: wrap; 
+ max-width: 1100px; 
+ margin: 0 auto;
+}
+
+.tarjeta-info {
+ background-color: #ffffff; /* Las tarjetas se quedan blancas para que resalten sobre el nuevo fondo */
+ padding: 35px 25px; 
+ border-radius: 16px; 
+ width: 260px; 
+ box-shadow: 0 6px 18px rgba(139, 115, 85, 0.08); /* Sombra cálida tirándole a tono café */
+ transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ border-top: 4px solid transparent; 
+}
+
+.tarjeta-info:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 51, 102, 0.12);
+  border-top-color: #003366; 
+}
+
+.icono-info { 
+  font-size: 45px; 
+  color: #00509d; 
+  margin-bottom: 20px; 
+  display: inline-block;
+  background: #f0f5fa; 
+  padding: 15px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.tarjeta-info h3 { 
+  font-size: 20px; 
+  margin-bottom: 12px; 
+  color: #111111; 
+  font-weight: 700;
+}
+
+.tarjeta-info p { 
+  font-size: 14px; 
+  color: #555555; 
+  line-height: 1.5; 
+}
+
+/* --- PIE DE PÁGINA --- */
+.pie-pagina { 
+  background-color: #001f3f; 
+  color: #aaccee; 
+  padding: 35px 20px; 
+  text-align: center; 
+  font-size: 14px; 
+  border-top: 4px solid #ffcc00; 
+}
+
+.contenido-pie {
+ display: flex; 
+ justify-content: space-between; 
+ align-items: center;
+ max-width: 1100px; 
+ margin: 0 auto; 
+ flex-wrap: wrap; 
+ gap: 20px;
+}
+
+.enlaces-pie a { 
+  color: #ffffff; 
+  text-decoration: none; 
+  margin-left: 20px; 
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.enlaces-pie a:hover { 
+  color: #ffcc00; 
+  text-decoration: none; 
+}
+
+/* ── ANIMACIONES ── */
+@keyframes subirEntrada {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

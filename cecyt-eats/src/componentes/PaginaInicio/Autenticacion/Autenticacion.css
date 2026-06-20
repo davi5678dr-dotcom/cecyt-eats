@@ -1,0 +1,210 @@
+/* CONTENEDOR GENERAL AZUL (FONDO COMPLETO) */
+.contenedor-registro-azul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #b4c7e7; /* El tono azul claro original */
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* TARJETA PRINCIPAL CON LÍNEA CIRCULAR DE FONDO (COMPARTIDA) */
+.tarjeta-registro-circular {
+  background-color: #cbd7eb; /* Tono de contraste suave para la tarjeta */
+  border: 1px solid #99b4df;
+  border-radius: 12px;
+  padding: 25px 25px 35px 25px;
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  position: relative;
+  /* Genera el arco sutil visual en el fondo */
+  background-image: radial-gradient(circle at 50% 120%, transparent 55%, rgba(255, 255, 255, 0.25) 56%);
+}
+
+/* DISTRIBUCIÓN HORIZONTAL PARA LOGOS Y TÍTULO */
+.encabezado-logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+  gap: 10px;
+}
+
+/* LOGOS EN LAS ESQUINAS */
+.logo-esquina {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* TITULO DE LA CAFETERÍA (VERDE) */
+.titulo-cafeteria {
+  font-size: 1.4rem;
+  color: #2e4a1c; /* Verde oscuro original */
+  margin: 0;
+  font-weight: 700;
+  flex: 1;
+}
+
+/* ÍCONO DEL MONITO CENTRAL */
+.icono-usuario-centro {
+  font-size: 3.2rem;
+  color: #1a2b4c;
+  margin: 5px 0 15px 0;
+}
+
+/* ALINEACIÓN EN COLUMNA DEL FORMULARIO */
+.formulario-circular {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+
+/* CONTENEDOR PARA INTERCALAR ETIQUETA E INPUT */
+.contenedor-input-etiqueta {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.etiqueta-flotante {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #334155;
+  margin-left: 2px;
+}
+
+/* ENTRADAS RECTANGULARES LIMPIAS Y MODERNAS */
+.entrada-curva {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.95rem;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.entrada-curva:focus {
+  border-color: #1e3a8a;
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.15);
+}
+
+.entrada-curva::placeholder {
+  color: #94a3b8;
+}
+
+/* BLOQUE DEL SELECTOR DE ROL (EXCLUSIVO DE REGISTRO) */
+.grupo-rol-circular {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.etiqueta-rol {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.selector-curvo {
+  padding: 8px;
+  border: 1px solid #94a3b8;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 0.9rem;
+  color: #333;
+  outline: none;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+/* ENLACE ¿OLVIDASTE TU CONTRASEÑA? (EXCLUSIVO DE LOGIN) */
+.contenedor-olvide {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -5px;
+}
+
+.olvide-contrasena {
+  font-size: 0.85rem;
+  color: #475569;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.olvide-contrasena:hover {
+  color: #1e3a8a;
+  text-decoration: underline;
+}
+
+/* TEXTOS DE MENSAJES Y ERROR */
+.error-texto-corto {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.exito-texto-corto {
+  color: #15803d;
+  font-size: 0.85rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* BOTÓN GRANDE AZUL DESTACADO (COMPARTIDO) */
+.btn-registrarme-azul {
+  width: 90%;
+  background-color: #1e3a8a; /* Azul rey */
+  color: #ffffff;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-registrarme-azul:hover {
+  background-color: #172554;
+}
+
+.btn-registrarme-azul:active {
+  transform: scale(0.98);
+}
+
+/* TEXTO DE CAMBIO DE PANTALLA EN EL PIE */
+.texto-enlace-abajo {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.texto-enlace-abajo span {
+  color: #1e3a8a;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.texto-enlace-abajo span:hover {
+  text-decoration: underline;
+}
