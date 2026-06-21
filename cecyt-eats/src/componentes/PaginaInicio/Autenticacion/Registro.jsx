@@ -27,19 +27,31 @@ function Registro({ alCambiarAInicioSesion }) {
             return;
         }
 
-        // Paso 3: Reemplazo de lógica de localStorage por llamada a la API
-        const respuesta = await registrarUsuario({ nombre, correo, contrasena, rol });
+        try {
+            // Paso 3: Reemplazo de lógica de localStorage por llamada a la API
+            const respuesta = await registrarUsuario({ nombre, correo, contrasena, rol });
 
-        if (respuesta.error) {
-            setError(respuesta.error);
-            return;
+            if (respuesta && respuesta.error) {
+                setError(respuesta.error);
+                return;
+            }
+
+            // Si la respuesta es exitosa
+            setExito('¡Registro exitoso! Ya puedes iniciar sesión.');
+            setNombre('');
+            setCorreo('');
+            setContrasena('');
+
+        } catch (err) {
+            // Capturamos el error del servidor (por ejemplo, el mensaje de correo duplicado)
+            if (err.response && err.response.data && err.response.data.error) {
+                setError(err.response.data.error);
+            } else if (err.message) {
+                setError('Este correo ya está registrado.');
+            } else {
+                setError('Hubo un error al procesar el registro.');
+            }
         }
-
-        // Si la respuesta es exitosa
-        setExito('¡Registro exitoso! Ya puedes iniciar sesión.');
-        setNombre('');
-        setCorreo('');
-        setContrasena('');
     };
 
     return (
