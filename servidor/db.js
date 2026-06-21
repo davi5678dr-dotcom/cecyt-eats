@@ -9,11 +9,8 @@ const conexion = mysql.createPool({
  database: process.env.DB_NAME || 'cecyt_eats',
  waitForConnections: true,
  connectionLimit: 10,
- ssl: false,
- // CORREGIDO: Fuerza al backend a usar el plugin de contraseña clásico para evitar el rechazo de Render
- authPlugins: {
-   mysql_clear_password: () => () => Buffer.from(process.env.DB_PASSWORD || '')
- }
+ ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : 
+false,
 });
 conexion.getConnection()
  .then(() => console.log('✔ Conectado a MySQL'))
